@@ -1,5 +1,5 @@
 # PHP Login Test
-Ini merupakan file percobaan untuk mengimplementasi fungsi 'password_hash()' pada PHP.
+Ini merupakan file percobaan untuk mengimplementasi fungsi `password_hash()` pada PHP.
 Ini cocok bagi anda yang ingin mengimplementasi nya, dengan cukup mudah. Dan, ini juga cocok bagi anda yang ingin mempelajarinya.
 
 # Tipe Alur
