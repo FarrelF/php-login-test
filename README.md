@@ -11,7 +11,7 @@ Jika ada kesempatan, maka saya akan membuat versi PDO nya.
 Jika anda ingin mendownloadnya, anda bisa langsung klik `Clone or Download`, lalu klik *Button* `Download ZIP`.
 
 Atau, jika anda sudah mengerti tentang Git, mungkin bisa anda Clone seluruh Repo ini dengan perintah.
-```bash
+```sh
 git clone https://github.com/FarrelF/php-login-test.git
 ```
 
