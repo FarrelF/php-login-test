@@ -15,9 +15,12 @@
       $mc = $_POST['memory_cost'];
       $tc = $_POST['time_cost'];
       $p = $_POST['threads'];
-      $bcryptcost =
+      $bcryptcost = "";
     } elseif ($Algo == "Bcrypt") {
       $bcryptcost = $_POST['cost'];
+      $mc = "";
+      $tc = "";
+      $p = "";
     }
     $NamaAlgo = "";
     $Opsi = "";
