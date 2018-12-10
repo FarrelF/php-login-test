@@ -3,7 +3,11 @@
   if (isset($_SESSION['username']) && isset($_SESSION['password']) && isset($_SESSION['nm_pengguna']) && isset($_SESSION['idpengguna'])) {
     header("Location: ../dash.php"); // Akan di alihkan ke file "../dash.php" jika masih ada Session/Sesi Login.
   } elseif (empty($_POST['username']) || empty($_POST['password'])) {
-    http_response_code(403);
+    if (!function_exists('http_response_code')) {
+      header($_SERVER["SERVER_PROTOCOL"]." 403 Forbidden");
+    } else {
+      http_response_code(403);
+    }
     header("Location: ../"); // Akan di alihkan ke "../index.php" atau "../" atau halaman login jika tidak ada salah satu atau sama sekali inputan dari Halaman Login.
   } else {
     include "../config/koneksi.php";
