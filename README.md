@@ -9,6 +9,21 @@ Program ini masih menggunakan Alur Struktural (bukan PDO/PHP Data Object), karen
 
 Jika ada kesempatan, maka saya akan membuat versi PDO nya.
 
+## Fitur-fitur pada Program
+Fitur-fitur pada Program yang bisa anda pelajari sebagai berikut:
+
+1. Selain bisa login, dan mempunyai halaman Dasbor, Program ini bisa melakukan Daftar Akun.
+2. Bisa di jalankan/kompatibel pada PHP versi 5.3.7, atau di atasnya. Ini terjadi berkat Library PHP [`password_compat`](https://github.com/ircmaxell/password_compat) yang di buat oleh Username [`ircmaxell`](https://github.com/ircmaxell), sehingga fungsi [`password_hash()`](https://secure.php.net/manual/en/function.password-hash.php) dan [`password_verify()`](https://secure.php.net/manual/en/function.password-verify.php) bisa berjalan pada PHP versi lama, yang semula kedua fungsi tersebut hanya dapat di jalankan pada PHP (minimalnya) versi 5.5.0 atau di atasnya.
+3. Algoritma yang bisa anda pilih dan atur opsi nya sesuka anda (dengan opsi yang ada, serta resiko yang anda tanggung sendiri). (Berlaku untuk pengguna PHP 7.2.0 atau di atasnya)
+4. Penggunaan Algoritma pada saat Daftar akan menyesuaikan dengan versi PHP yang anda gunakan. Misal, jika menggunakan versi PHP di bawah 7.2.0, maka secara otomatis "Algoritma Kata Sandi" akan hilang, namun di gantikan dengan textbox "BCrypt Cost", dan secara otomatis akan menggunakan `Bcrypt` untuk Algoritma Kata Sandi nya, hal ini dilakukan agar meminimalisir kesalahan (*Error*). Dan, ini juga berkat fungsi [`version_compare()`](https://secure.php.net/manual/en/function.version-compare.php) dari PHP.
+5. Untuk pengguna PHP versi 7.2.0 ke bawah, maka secara otomatis anda akan menggunakan Algoritma `Bcrypt` daripada `Argon2` (dan varian nya).
+
+Fitur-fitur yang rencananya ingin di implementasikan pada program ini:
+1. Implementasi Algoritma `Argon2id` pada PHP (Berlaku hanya untuk PHP 7.3.0 dan diatasnya).
+2. Hak Akses Pengguna.
+3. Tabel CRUD untuk melihat, mengedit dan menghapus data pengguna berdasarkan hak akses yang dimiliki saat sesi.
+4. Menghalangi PHP versi yang di bawah dari 5.3.7 untuk menjalankan program ini, dari sisi Back-end.
+
 
 ## Sanggahan
 Saya memang membuat program ini. Tapi, saya tidak akan bertanggungjawab atas kerusakan atau apapun yang terjadi karena ulah anda sendiri saat menggunakan program ini, baik pada Komputer anda sendiri maupun orang lain.
@@ -16,6 +31,10 @@ Saya memang membuat program ini. Tapi, saya tidak akan bertanggungjawab atas ker
 Saya membuat program ini dengan menggunakan Fungsi yang ada pada PHP, saya tidak menggunakan Fungsi PHP yang di dapat dari luar/pihak ke-3, kecuali untuk Library [`password_compat`](https://github.com/ircmaxell/password_compat) yang di buat oleh [`ircmaxell`](https://github.com/ircmaxell) agar Program ini bisa berjalan pada PHP 5.3.7 atau di atasnya.
 
 Dengan begitu, harusnya tidak ada Malware yang merusak di dalam software ini, hanya pengaruhnya ke Kinerja yang melambat (Karena menghasilkan Hash membutuhkan sumber daya). Jadi, mohon gunakanlah dengan bijak dan tanggung sendiri resiko nya !
+
+Dan, saya peringatkan sekali lagi, bahwa program ini tidak cocok untuk di Implementasikan ke dalam lingkungan PRODUKSI, melainkan hanya MENGUJI nya saja. Karena, program ini di desain untuk melakukan pengujian dan pembelajaran, bukan ke tahap PRODUKSI.
+
+Meski demikian, anda dapat mempelajari fungsi-fungsi ini, lalu di implementasikan ke dalam program anda/program yang berbeda daripada ini, ke dalam lingkungan Produksi.
 
 ## Persyaratan Minimal
 Sebelum menggunakan Software ini, alangkah baik nya untuk memenuhi persyaratan berikut:
