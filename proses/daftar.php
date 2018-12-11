@@ -11,7 +11,12 @@
     $Password = $_POST['password'];
     $NamaPengguna = $_POST['nama'];
     $Algo = $_POST['algoritma'];
-    if ($Algo == "Argon2i") {
+    if ($Algo == "Argon2id") {
+      $mc = $_POST['memory_cost'];
+      $tc = $_POST['time_cost'];
+      $p = $_POST['threads'];
+      $bcryptcost = "";
+    } elseif ($Algo == "Argon2i") {
       $mc = $_POST['memory_cost'];
       $tc = $_POST['time_cost'];
       $p = $_POST['threads'];
