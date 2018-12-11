@@ -5,7 +5,7 @@
   } elseif (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['nama']) || empty($_POST['id']) || empty($_POST['algoritma'])) {
     header("Location: ../"); // Akan di alihkan ke "../index.php" "../" atau halaman login jika tidak ada salah satu atau sama sekali inputan dari Halaman Daftar.
   } else {
-    include "../config/koneksi.php";
+    require "../config/koneksi.php";
     $idpengguna = $_POST['id'];
     $InputUser = $_POST['username'];
     $Password = $_POST['password'];
@@ -28,7 +28,14 @@
     $data = mysqli_num_rows($cari);
     if ($data == 0) {
       if (function_exist('password_hash')) {
-        if ($Algo == "Argon2i") {
+        if ($Algo == "Argon2id") {
+          $NamaAlgo = PASSWORD_ARGON2ID;
+          $Opsi = [
+            'memory_cost' => 1024*$mc,
+            'time_cost' => $tc,
+            'threads' => $p
+          ];
+        } elseif ($Algo == "Argon2i") {
           $NamaAlgo = PASSWORD_ARGON2I;
           $Opsi = [
             'memory_cost' => 1024*$mc,
@@ -42,7 +49,7 @@
           ];
         }
       } elseif (!function_exist('password_hash') && version_compare(phpversion(), '5.3.7', '>=') && version_compare(phpversion(), '5.5.0', '<')) {
-        include "../ext/password_compat.php";
+        require "../ext/password_compat.php";
         $NamaAlgo = PASSWORD_DEFAULT;
         $Opsi = [
           'cost' => $bcryptcost

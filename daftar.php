@@ -3,21 +3,24 @@
   if (isset($_SESSION['username']) && isset($_SESSION['password']) && isset($_SESSION['nm_pengguna']) && isset($_SESSION['idpengguna'])) {
     header("Location: dash.php"); // Akan di alihkan ke file "dash.php" jika masih ada Session/Sesi Login.
   } else {
-    include "config/koneksi.php";
-    include "config/function.php";
+    require "config/koneksi.php";
+    require "config/function.php";
     ?>
     <!DOCTYPE html>
     <html lang="id" dir="ltr">
       <head>
         <meta charset="utf-8">
         <title>Form Pendaftaran Akun</title>
-        <?php
-        if (version_compare(phpversion(), '7.2.0', '>=')) {
-          ?>
+        <?php if (version_compare(phpversion(), '7.2.0', '>=')): ?>
           <script type="text/javascript">
           function updatetext() {
             var Algo = document.querySelector('input[name="algoritma"]:checked').value;
-            if(Algo == "Argon2i") {
+            if(Algo == "Argon2id") {
+              document.getElementById("bcrypt_cost").setAttribute('disabled', true);
+              document.getElementById("memory_cost").removeAttribute('disabled');
+              document.getElementById("time_cost").removeAttribute('disabled');
+              document.getElementById("threads").removeAttribute('disabled');
+            }else if (Algo == "Argon2i") {
               document.getElementById("bcrypt_cost").setAttribute('disabled', true);
               document.getElementById("memory_cost").removeAttribute('disabled');
               document.getElementById("time_cost").removeAttribute('disabled');
@@ -35,12 +38,8 @@
             }
           }
           </script>
-          <?php
-        } else {
-          echo "";
-        }
-         ?>
-
+        <?php else: echo ""; ?>
+        <?php endif; ?>
       </head>
       <body>
         <h3>Form Pendaftaran Akun</h3>
@@ -53,7 +52,16 @@
             Nama Pengguna         : <input type="text" size="20" name="username" value="<?php if (isset($_GET['username'])) {echo $_GET['username'];} else {echo "";}?>" required>
             Kata Sandi            : <input type="password" size="20" name="password" required>
             <?php
-            if (version_compare(phpversion(), '7.2.0', '>=')) {
+            
+            if (version_compare(phpversion(), '7.3.0', '>=')) {
+              ?>Algoritma Kata Sandi  : <input type="radio" name="algoritma" value="Argon2id" onclick="updatetext()" required>Argon2id
+                                    <input type="radio" name="algoritma" value="Argon2i" onclick="updatetext()" required>Argon2i
+                                        Memory Cost  : <input type="number" id="memory_cost" name="memory_cost" min="1" max="99999" required> MB
+                                        Time Cost    : <input type="number" id="time_cost" name="time_cost" min="1" max="99999" required>
+                                        Threads      : <input type="number" id="threads" name="threads" min="1" max="500" required>
+                                    <input type="radio" name="algoritma" value="Bcrypt" onclick="updatetext()" required>Bcrypt
+                                        Cost         : <input type="number" id="bcrypt_cost" name="cost" min="3" max="500" required><?php
+            } elseif (version_compare(phpversion(), '7.2.0', '>=') && version_compare(phpversion(), '7.3.0', '<')) {
               ?>Algoritma Kata Sandi  : <input type="radio" name="algoritma" value="Argon2i" onclick="updatetext()" required>Argon2i
                                         Memory Cost  : <input type="number" id="memory_cost" name="memory_cost" min="1" max="99999" required> MB
                                         Time Cost    : <input type="number" id="time_cost" name="time_cost" min="1" max="99999" required>
@@ -68,6 +76,7 @@
             } elseif (version_compare(phpversion(), '5.3.7', '<')) {
               echo "";
             }
+            
              ?>
           </pre>
           <button type="submit">Daftar</button>
