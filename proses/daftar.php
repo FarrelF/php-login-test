@@ -1,4 +1,7 @@
 <?php
+if (version_compare(phpversion(), '5.3.7', '<')) {
+  header("Location: ../daftar.php?username=".$InputUser."&nm_pengguna=".$NamaPengguna."&status=phpnotsupported");
+} else {
   session_start();
   if (isset($_SESSION['username']) && isset($_SESSION['password']) && isset($_SESSION['nm_pengguna']) && isset($_SESSION['idpengguna'])) {
     header("Location: ../dash.php"); // Akan di alihkan ke file "dash.php" jika masih ada Session/Sesi Login.
@@ -11,12 +14,7 @@
     $Password = $_POST['password'];
     $NamaPengguna = $_POST['nama'];
     $Algo = $_POST['algoritma'];
-    if ($Algo == "Argon2id") {
-      $mc = $_POST['memory_cost'];
-      $tc = $_POST['time_cost'];
-      $p = $_POST['threads'];
-      $bcryptcost = "";
-    } elseif ($Algo == "Argon2i") {
+    if ($Algo == "Argon2id" || $Algo == "Argon2i") {
       $mc = $_POST['memory_cost'];
       $tc = $_POST['time_cost'];
       $p = $_POST['threads'];
@@ -53,15 +51,14 @@
             'cost' => $bcryptcost
           ];
         }
-      } elseif (!function_exist('password_hash') && version_compare(phpversion(), '5.3.7', '>=') && version_compare(phpversion(), '5.5.0', '<')) {
+      } elseif (!function_exist('password_hash')) {
         require "../ext/password_compat.php";
         $NamaAlgo = PASSWORD_DEFAULT;
         $Opsi = [
           'cost' => $bcryptcost
         ];
-      } else {
-        header("Location: ../daftar.php?username=".$InputUser."&nm_pengguna=".$NamaPengguna."&status=phpnotsupported");
       }
+
       $Hash = password_hash($Password, $NamaAlgo, $Opsi);
       $kueri="INSERT INTO pengguna (idpengguna,username,password,nm_pengguna) VALUES ('$idpengguna','$InputUser','$Hash','$NamaPengguna')";
       if (!mysqli_query($link,$kueri)) {
@@ -95,4 +92,5 @@
       header("Location: ../daftar.php?username=".$InputUser."&nm_pengguna=".$NamaPengguna."&status=usernoavailable");
     }
   }
+}
 ?>
