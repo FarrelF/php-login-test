@@ -6,7 +6,6 @@ if ( $_SERVER['REQUEST_METHOD']=='GET' && realpath(__FILE__) == realpath( $_SERV
   } else {
     http_response_code(403);
   }
-  
   /* Dibawah ini merupakan outputnya */
   die("Anda dilarang mengaksesnya secara langsung!");
 
