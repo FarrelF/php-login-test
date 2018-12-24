@@ -23,7 +23,7 @@ Fitur-fitur yang rencananya ingin di implementasikan pada program ini:
 1. [x] Implementasi Algoritma `Argon2id` pada PHP (Berlaku hanya untuk PHP 7.3.0 dan diatasnya).
 2. [ ] Hak Akses Pengguna.
 3. [ ] Tabel CRUD untuk melihat, mengedit dan menghapus data pengguna berdasarkan hak akses yang dimiliki saat sesi.
-4. [ ] Menghalangi PHP versi yang di bawah dari 5.3.7 untuk menjalankan program ini, dari sisi Belakang (*Back-end*).
+4. [x] Menghalangi PHP versi yang di bawah dari 5.3.7 untuk menjalankan program ini, dari sisi Belakang (*Back-end*).
 
 
 ## Sanggahan
@@ -46,8 +46,9 @@ Sebelum menggunakan Software ini, alangkah baik nya untuk memenuhi persyaratan b
 1. Sebuah Komputer dan Sistem Operasi (Bisa gunakan Windows, Distribusi GNU/Linux atau macOS X)
 2. Sudah terinstall Web Browser. (Minimal: Web Browser Bawaan)
 3. Spesifikasi Komputer yang sanggup menjalankan Web Browser sekarang. (Sisakan Memori pada RAM setidaknya minimal sebesar 128 MB atau di atasnya dan sedikit penggunaan CPU untuk proses Hashing)
-4. Sudah terinstall Webserver Apache2/Nginx dan Aplikasi PHP nya. (Contoh: XAMPP pada Windows, LAMP pada GNU/Linux, dll)
-5. Minimal versi PHP nya adalah 5.3.7 atau saya sarankan agar gunakan versi 5.6 atau di atasnya.
+4. Sudah terinstall Webserver Apache2/Nginx, PHP Server, dan MySQL/MariaDB Server. (Contoh: XAMPP pada Windows, LAMP pada GNU/Linux, dll)
+5. phpMyAdmin untuk mengelola Database, atau bisa anda gunakan perangkat lunak lainnya untuk mengelola Database SQL, seperti Adminer, dll.
+6. Minimal versi PHP nya adalah 5.3.7 atau saya sarankan agar gunakan versi 5.6 atau di atasnya.
 
 Jika syarat sudah terpenuhi, maka anda telah siap untuk menggunakan program ini dengan mendownloadnya terlebih dahulu.
 
@@ -55,9 +56,9 @@ Jika syarat sudah terpenuhi, maka anda telah siap untuk menggunakan program ini 
 ## A. Cara Download
 Jika anda ingin mendownloadnya, anda bisa langsung klik `Clone or Download`, lalu klik *Button* `Download ZIP`.
 
-Atau, jika anda sudah mengerti tentang Git, mungkin bisa anda Clone seluruh Repo ini dengan perintah:
+Atau, jika anda lebih menyukai nya dengan menggunakan Terminal/Bash/Shell, mungkin bisa anda Clone seluruh Repo ini dengan perintah berikut:
 ```sh
-git clone https://github.com/FarrelF/php-login-test.git
+$ git clone https://github.com/FarrelF/php-login-test.git
 ```
 
 
