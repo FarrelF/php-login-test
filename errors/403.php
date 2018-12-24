@@ -15,6 +15,6 @@
   <body>
     <h1>403 Forbidden</h1>
     <hr>
-    <p>Mohon maaf, anda di larang untuk mengakses halaman ini, silahkan <a href="javascript:window.history.back(-1);">kembali</a> !</p>
+    <p>Mohon maaf, anda dilarang untuk mengakses halaman ini, silahkan <a href="javascript:window.history.back(-1);">kembali</a> !</p>
   </body>
 </html>
