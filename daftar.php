@@ -1,4 +1,7 @@
 <?php
+if (version_compare(phpversion(), '5.3.7', '<')) {
+  require_once "errors/incompatible.php";
+} else {
   session_start();
   if (isset($_SESSION['username']) && isset($_SESSION['password']) && isset($_SESSION['nm_pengguna']) && isset($_SESSION['idpengguna'])) {
     header("Location: dash.php"); // Akan di alihkan ke file "dash.php" jika masih ada Session/Sesi Login.
@@ -111,4 +114,7 @@
     </html>
     <?php
   }
+}
 ?>
+
+  
