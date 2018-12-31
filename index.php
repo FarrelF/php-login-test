@@ -11,6 +11,7 @@ if (version_compare(phpversion(), '5.3.7', '<')) {
    <html lang="id" dir="ltr">
      <head>
        <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <title>Login</title>
      </head>
      <body>

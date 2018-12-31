@@ -13,6 +13,7 @@ if (version_compare(phpversion(), '5.3.7', '<')) {
     <html lang="id" dir="ltr">
       <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Form Pendaftaran Akun</title>
         <?php if (version_compare(phpversion(), '7.2.0', '>=')): ?>
           <script type="text/javascript">
