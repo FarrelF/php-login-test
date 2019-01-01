@@ -30,7 +30,7 @@ if (version_compare(phpversion(), '5.3.7', '<')) {
     $cari = mysqli_query($link, "SELECT * FROM pengguna WHERE username='$InputUser'");
     $data = mysqli_num_rows($cari);
     if ($data == 0) {
-      if (function_exist('password_hash')) {
+      if (function_exists('password_hash')) {
         if ($Algo == "Argon2id") {
           $NamaAlgo = PASSWORD_ARGON2ID;
           $Opsi = [
@@ -51,7 +51,7 @@ if (version_compare(phpversion(), '5.3.7', '<')) {
             'cost' => $bcryptcost
           ];
         }
-      } elseif (!function_exist('password_hash')) {
+      } elseif (!function_exists('password_hash')) {
         require "../ext/password_compat.php";
         $NamaAlgo = PASSWORD_DEFAULT;
         $Opsi = [
@@ -62,6 +62,11 @@ if (version_compare(phpversion(), '5.3.7', '<')) {
       $Hash = password_hash($Password, $NamaAlgo, $Opsi);
       $kueri="INSERT INTO pengguna (idpengguna,username,password,nm_pengguna) VALUES ('$idpengguna','$InputUser','$Hash','$NamaPengguna')";
       if (!mysqli_query($link,$kueri)) {
+        if (!function_exists('http_response_code')) {
+          header($_SERVER["SERVER_PROTOCOL"]." 500 Internal Server Error");
+        } else {
+          http_response_code(500);
+        }
         ?>
         <!DOCTYPE html>
         <html lang="id" dir="ltr">
@@ -71,7 +76,6 @@ if (version_compare(phpversion(), '5.3.7', '<')) {
           </head>
           <body>
             <p>Adanya kesalahan saat mendaftar akun, berikut di bawah ini kesalahannya:</p>
-            <br>
             <p>Deskripsi Kesalahan: <?php echo mysqli_error($link); ?></p>
             <br>
             <a href="../daftar.php?username=<?php echo $InputUser; ?>&nm_pengguna=<?php echo $NamaPengguna; ?>">Kembali</a>
