@@ -1,4 +1,7 @@
 <?php
+if (version_compare(phpversion(), '5.3.7', '<')) {
+  require_once "../errors/incompatible.php";
+} else {
   session_start();
   if (isset($_SESSION['username']) && isset($_SESSION['password']) && isset($_SESSION['nm_pengguna']) && isset($_SESSION['idpengguna'])) {
     header("Location: ../dash.php"); // Akan di alihkan ke file "../dash.php" jika masih ada Session/Sesi Login.
@@ -10,20 +13,16 @@
     }
     header("Location: ../"); // Akan di alihkan ke "../index.php" atau "../" atau halaman login jika tidak ada salah satu atau sama sekali inputan dari Halaman Login.
   } else {
-    include "../config/koneksi.php";
+    require "../config/koneksi.php";
+    if (!function_exists('password_verify')) {
+      require "../ext/password_compat.php";
+    }
     $InputUser = $_POST['username'];
     $Password = $_POST['password'];
     $cari = mysqli_query($link, "SELECT * FROM pengguna WHERE username='$InputUser'");
     $read = mysqli_fetch_array($cari);
     $data = mysqli_num_rows($cari);
     $Hash = $read['password'];
-    if (version_compare(phpversion(), '5.3.7', '>=') && version_compare(phpversion(), '5.5.0', '<')) {
-      include "../ext/password_compat.php";
-    } elseif (version_compare(phpversion(), '5.3.7', '<')) {
-      header("Location:../?username=$InputUser&status=phpnotsupported");
-    } else {
-      echo "";
-    }
     if ($data == '1') {
       if (password_verify($Password, $Hash)) {
         $_SESSION['idpengguna'] = $read['idpengguna'];
@@ -38,5 +37,5 @@
       header("Location:../?username=$InputUser&status=invalidaccount");
     }
   }
-
+}
 ?>
