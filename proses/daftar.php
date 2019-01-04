@@ -1,6 +1,7 @@
 <?php
 if (version_compare(phpversion(), '5.3.7', '<')) {
-  header("Location: ../daftar.php?username=".$InputUser."&nm_pengguna=".$NamaPengguna."&status=phpnotsupported");
+  //header("Location: ../daftar.php?username=".$InputUser."&nm_pengguna=".$NamaPengguna."&status=phpnotsupported");\
+  header("Location: ../");
 } else {
   session_start();
   if (isset($_SESSION['username']) && isset($_SESSION['password']) && isset($_SESSION['nm_pengguna']) && isset($_SESSION['idpengguna'])) {
@@ -12,6 +13,7 @@ if (version_compare(phpversion(), '5.3.7', '<')) {
     $idpengguna = $_POST['id'];
     $InputUser = $_POST['username'];
     $Password = $_POST['password'];
+    unset($_POST['password']);
     $NamaPengguna = $_POST['nama'];
     $Algo = $_POST['algoritma'];
     if ($Algo == "Argon2id" || $Algo == "Argon2i") {
@@ -58,9 +60,8 @@ if (version_compare(phpversion(), '5.3.7', '<')) {
           'cost' => $bcryptcost
         ];
       }
-
       $Hash = password_hash($Password, $NamaAlgo, $Opsi);
-      $kueri="INSERT INTO pengguna (idpengguna,username,password,nm_pengguna) VALUES ('$idpengguna','$InputUser','$Hash','$NamaPengguna')";
+      $kueri= "INSERT INTO pengguna (idpengguna, username, password, nm_pengguna) VALUES ('$idpengguna', '$InputUser', '$Hash', '$NamaPengguna')";
       if (!mysqli_query($link,$kueri)) {
         if (!function_exists('http_response_code')) {
           header($_SERVER["SERVER_PROTOCOL"]." 500 Internal Server Error");
@@ -85,6 +86,7 @@ if (version_compare(phpversion(), '5.3.7', '<')) {
         </html>
         <?php
         mysqli_close($link);
+        unset($Hash);
       } else {
         header("Location: ../?success=true");
       }

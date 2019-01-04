@@ -19,16 +19,18 @@ if (version_compare(phpversion(), '5.3.7', '<')) {
     }
     $InputUser = $_POST['username'];
     $Password = $_POST['password'];
+    unset($_POST['password']);
     $cari = mysqli_query($link, "SELECT * FROM pengguna WHERE username='$InputUser'");
     $read = mysqli_fetch_array($cari);
     $data = mysqli_num_rows($cari);
     $Hash = $read['password'];
+    unset($read['password']);
     if ($data == '1') {
       if (password_verify($Password, $Hash)) {
         $_SESSION['idpengguna'] = $read['idpengguna'];
         $_SESSION['nm_pengguna'] = $read['nm_pengguna'];
         $_SESSION['username'] = $read['username'];
-        $_SESSION['password'] = $read['password'];
+        $_SESSION['password'] = $Hash;
         header("Location:../dash.php");
       } else {
         header("Location:../?username=$InputUser&status=incorrectpass");

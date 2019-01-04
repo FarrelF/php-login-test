@@ -42,6 +42,10 @@ if (version_compare(phpversion(), '5.3.7', '<')) {
              } else {
                echo "";
              }
+           } elseif (isset($_GET['loggedout']) && $_GET['loggedout'] == "true") {
+             echo "<p>Anda berhasil keluar, sekarang anda bisa menggunakan akun lain jika anda mau !</p>";
+           } elseif (isset($_GET['loggedout']) && $_GET['loggedout'] == "false") {
+             echo "<p>Anda tidak memiliki sesi Login apapun untuk Keluar Akun. Jadi, hal ini tidak bisa dilakukan. Silahkan Login !</p>";
            } else {
              echo "";
            }

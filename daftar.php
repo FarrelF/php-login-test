@@ -42,8 +42,7 @@ if (version_compare(phpversion(), '5.3.7', '<')) {
             }
           }
           </script>
-        <?php else: echo ""; ?>
-        <?php endif; ?>
+        <?php else: echo ""; endif; ?>
       </head>
       <body>
         <h3>Form Pendaftaran Akun</h3>
@@ -56,7 +55,6 @@ if (version_compare(phpversion(), '5.3.7', '<')) {
             Nama Pengguna         : <input type="text" size="20" name="username" value="<?php if (isset($_GET['username'])) {echo $_GET['username'];} else {echo "";}?>" required>
             Kata Sandi            : <input type="password" size="20" name="password" required>
             <?php
-            
             if (version_compare(phpversion(), '7.3.0', '>=')) {
               ?>Algoritma Kata Sandi  : <input type="radio" name="algoritma" value="Argon2id" onclick="updatetext()" required>Argon2id
                                     <input type="radio" name="algoritma" value="Argon2i" onclick="updatetext()" required>Argon2i
@@ -67,20 +65,17 @@ if (version_compare(phpversion(), '5.3.7', '<')) {
                                         Cost         : <input type="number" id="bcrypt_cost" name="cost" min="3" max="500" required><?php
             } elseif (version_compare(phpversion(), '7.2.0', '>=') && version_compare(phpversion(), '7.3.0', '<')) {
               ?>Algoritma Kata Sandi  : <input type="radio" name="algoritma" value="Argon2i" onclick="updatetext()" required>Argon2i
-                                        Memory Cost  : <input type="number" id="memory_cost" name="memory_cost" min="1" max="99999" required> MB
-                                        Time Cost    : <input type="number" id="time_cost" name="time_cost" min="1" max="99999" required>
+                                        Memory Cost  : <input type="number" id="memory_cost" name="memory_cost" min="2" max="99999" required> MB
+                                        Time Cost    : <input type="number" id="time_cost" name="time_cost" min="2" max="99999" required>
                                         Threads      : <input type="number" id="threads" name="threads" min="1" max="500" required>
                                     <input type="radio" name="algoritma" value="Bcrypt" onclick="updatetext()" required>Bcrypt
-                                        Cost         : <input type="number" id="bcrypt_cost" name="cost" min="3" max="500" required><?php
-            } elseif(version_compare(phpversion(), '5.5.0', '>=') && version_compare(phpversion(), '7.2.0', '<')) {
-              ?>Bcrypt Cost           : <input type="number" name="cost" min="1" max="500" required>
+                                        Cost         : <input type="number" id="bcrypt_cost" name="cost" min="4" max="500" required><?php
+            } elseif(version_compare(phpversion(), '5.3.7', '>=') && version_compare(phpversion(), '7.2.0', '<')) {
+              ?>Bcrypt Cost           : <input type="number" name="cost" min="4" max="500" required>
               <input type="hidden" name="algoritma" value="Bcrypt"><?php
-            } elseif (version_compare(phpversion(), '5.3.7', '>=') && version_compare(phpversion(), '5.5.0', '<')) {
-              ?>Bcrypt Cost           : <input type="number" name="cost" min="1" max="500" required><?php
             } elseif (version_compare(phpversion(), '5.3.7', '<')) {
               echo "";
             }
-            
              ?>
           </pre>
           <button type="submit">Daftar</button>
