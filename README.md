@@ -1,5 +1,5 @@
 # PHP Login Test
-Ini merupakan file percobaan untuk mengimplementasi Fungsi [`password_hash()`](https://secure.php.net/manual/en/function.password-hash.php) dan Fungsi [`password_verify()`](https://secure.php.net/manual/en/function.password-verify.php) pada PHP.
+Ini merupakan file percobaan untuk mengimplementasi Fungsi [`password_*`](https://secure.php.net/password) pada PHP.
 
 Ini cocok bagi anda yang ingin mengimplementasi nya, dengan cukup mudah. Dan, ini juga cocok bagi anda yang ingin mempelajarinya.
 
