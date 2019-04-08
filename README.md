@@ -107,7 +107,7 @@ Anda dapat mengedit nya dengan menggunakan Perangkat Lunak Perubah Teks (*Text E
 
 Bahkan, anda bisa mengeditnya dengan Notepad jika mau. Tapi, saya sarankan agar anda mengeditnya dengan perubah teks yang memiliki fitur "*Syntax Highlighter*" dan "*Auto-complete*" agar mempermudah anda untuk merubah/membuat sebuah Program.
 
-Dari semua Perangkat Lunak yang saya sebut, Sublime Text memang paling populer di gunakan oleh Web Programmer, hanya saja sayang sekali jika Software ini termasuk *Propritary Software*, berbayar pula.
+Dari semua Perangkat Lunak yang saya sebut, Sublime Text memang paling populer di gunakan oleh Web Programmer, hanya saja sayang sekali jika Software ini termasuk *Proprietary Software*, berbayar pula.
 
 Daripada kita melanggar Aturan "Lisensi" dengan 'menggandakannya', maka lebih baik kita menggunakan versi Gratis nya, atau lebih baik jika Software nya bukan 'Freeware' atau hanya Gratis semata, melainkan menggunakan perangkat lunak FLOSS (Free/Libre Open Source Software).
 
