@@ -1,5 +1,5 @@
 # PHP Login Test
-Ini merupakan file percobaan untuk mengimplementasi Fungsi [`password_*`](https://secure.php.net/password) pada PHP.
+Ini merupakan file percobaan untuk mengimplementasi Fungsi [`password_hash()`](https://secure.php.net/manual/en/function.password-hash.php) dan [`password_verify()`](https://secure.php.net/manual/en/function.password-verify.php) pada PHP.
 
 Ini cocok bagi anda yang ingin mengimplementasi nya, dengan cukup mudah. Dan, ini juga cocok bagi anda yang ingin mempelajarinya.
 
@@ -56,7 +56,7 @@ Jika syarat sudah terpenuhi, maka anda telah siap untuk menggunakan program ini 
 ## A. Cara Download
 Jika anda ingin mendownloadnya, anda bisa langsung klik `Clone or Download`, lalu klik *Button* `Download ZIP`.
 
-Atau, jika anda lebih menyukai nya dengan menggunakan Terminal/Bash/Shell, mungkin bisa anda Clone seluruh Repo ini dengan perintah berikut:
+Atau, jika anda lebih menyukai nya dengan menggunakan Terminal Emulator, mungkin bisa Anda Clone seluruh Repo ini dengan perintah berikut:
 ```sh
 $ git clone https://github.com/FarrelF/php-login-test.git
 ```
@@ -75,7 +75,7 @@ Pastikan bahwa semua file "PHP Login Test" ini sudah tersalin ke dalam direktori
 
 Misalnya, kalau anda menggunakan XAMPP pada Windows, anda dapat menyalin folder `php-login-test-master` ke dalam Folder `C:\xampp\htdocs`.
 
-Atau, kalau kamu menggunakan LAMP di sistem GNU/Linux (Terutama jika kamu menggunakan Sistem Operasi Distribusi GNU/Linux seperti Ubuntu, Linux Mint dan Turunannya), kamu dapat menyalin folder tersebut ke dalam `/var/www/html`.
+Atau, kalau kamu menggunakan LAMP di sistem GNU/Linux (Terutama jika kamu menggunakan Ubuntu, Linux Mint dan Turunannya), kamu dapat menyalin folder tersebut ke dalam `/var/www/html`.
 
 Jika anda mau, anda bisa merename folder `php-login-test-master` menjadi `php-login-test` atau apapun yang anda inginkan, asalkan jangan lupa konsep penempatan web nya.
 
@@ -107,12 +107,16 @@ Anda dapat mengedit nya dengan menggunakan Perangkat Lunak Perubah Teks (*Text E
 
 Bahkan, anda bisa mengeditnya dengan Notepad jika mau. Tapi, saya sarankan agar anda mengeditnya dengan perubah teks yang memiliki fitur "*Syntax Highlighter*" dan "*Auto-complete*" agar mempermudah anda untuk merubah/membuat sebuah Program.
 
-Dari semua Perangkat Lunak yang saya sebut, Sublime Text memang paling populer di gunakan oleh Web Programmer, hanya saja sayang sekali jika lisensi nya berbayar.
+Dari semua Perangkat Lunak yang saya sebut, Sublime Text memang paling populer di gunakan oleh Web Programmer, hanya saja sayang sekali jika Software ini termasuk *Propritary Software*, berbayar pula.
 
-Daripada kita melanggar Aturan "Lisensi" dengan 'menggandakannya', maka lebih baik kita menggunakan versi Gratis nya, atau lebih baik jika Software nya bukan 'Freeware' atau hanya Gratis semata, melainkan 'Open-source' atau 'Free Software' (Perangkat Lunak Bebas).
+Daripada kita melanggar Aturan "Lisensi" dengan 'menggandakannya', maka lebih baik kita menggunakan versi Gratis nya, atau lebih baik jika Software nya bukan 'Freeware' atau hanya Gratis semata, melainkan menggunakan perangkat lunak FLOSS (Free/Libre Open Source Software).
 
 Salah satu nya adalah yang saya sebutkan di atas (Kecuali Visual Studio Code, yang binary nya Freeware), namun Perangkat Lunak Alternatif terbaik dari Sublime Text (menurut saya) yang bisa anda gunakan, adalah [Atom](https://atom.io).
 
-Sebenarnya anda dapat melihat secara langsung kode program nya disini, namun anda tidak bisa mengeditnya, karena hanya pemilik Repolah yang bisa (kecuali jika anda ingin mengirimkan Pull Request).
+Jika Anda ingin lebih memilih untuk memakai Visual Studio Code, namun Anda ingin Software tersebut bebas, Anda yang begitu menginginkan FLOSS. Atau, Anda yang ingin terbebas dari Telemetry/"Campur Tangan" Microsoft.
+ 
+Maka, bisa Anda gunakan [VSCodium](https://github.com/VSCodium/vscodium) yang merupakan Fork dari VSCode. Tidak ada perbedaan sama sekali, baik versi yang di gunakan nya sampai fitur-fitur nya. Hanya saja, binary yang ada disitu, tidak ada "campur tangan" dan [Lisensi dari Microsoft](https://code.visualstudio.com/license) yang perlu Anda setujui. Semua nya memang murni FLOSS, tidak ada tipuan !
+
+Sebenarnya, Anda dapat melihat secara langsung kode program nya disini, namun anda tidak bisa mengeditnya, karena hanya pemilik Repolah yang bisa (kecuali jika anda ingin mengirimkan Pull Request).
 
 Selamat Belajar \^\_\^
