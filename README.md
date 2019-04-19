@@ -52,6 +52,8 @@ Sebelum menggunakan Software ini, alangkah baik nya untuk memenuhi persyaratan b
 
 Jika syarat sudah terpenuhi, maka anda telah siap untuk menggunakan program ini dengan mendownloadnya terlebih dahulu.
 
+## Lisensi
+Saat ini, saya menggunakan Lisensi ISC untuk Repo ini. Silahkan baca dari [sini](https://github.com/FarrelF/php-login-test/blob/master/LICENSE.md).
 
 ## A. Cara Download
 Jika anda ingin mendownloadnya, anda bisa langsung klik `Clone or Download`, lalu klik *Button* `Download ZIP`.

@@ -1,4 +1,4 @@
-# Perjanjian lisensi (ISC License)
+# Perjanjian Lisensi (ISC License)
 
 Copyright &copy; 2018 Farrel Franqois
 
